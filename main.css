@@ -1,13 +1,21 @@
+@font-face {
+    font-family: custom;
+    src: url(caviar_dreams/CaviarDreams.ttf);
+}
+
 body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     background-color: black;
+    background-image: url("stars.jpg");
 }
 
 h1 {
     color: white;
+    font-family: custom;
+    font-size: 330%;
 }
 
 #constellation_Collection {
@@ -46,12 +54,6 @@ canvas {
     width: 100%;
 }
 
-#nameSlot {
-    border: 3px solid black;
-    height: 30px;
-    width: 100%;
-}
-
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -77,4 +79,10 @@ canvas {
 
 .modal-image {
     border: 2px solid #888;
+}
+
+#nameSlot {
+    color: white;
+    font-size: 300%;
+    font-family: custom;
 }

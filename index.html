@@ -256,18 +256,29 @@
                 canvas.getContext('2d').beginPath();
                 document.getElementById("namingSpace").value = "";
                 document.getElementById("nameSlot").innerHTML = null;
+                audioStop();
+            }
+            function audioStop() {
+                var audio = document.getElementById("audio");
+                audio.pause();
             }
         </script>
         <form onsubmit="nameConstellation(event)">
             <input type="text" id="namingSpace">
             <input type="submit" value="Name my Constellation">
+            <audio id="audio" src="music.mp3"></audio>
         </form>
         <script>
                 function nameConstellation(event) {
                     event.preventDefault();
                     document.getElementById("nameSlot").innerHTML = document.getElementById("namingSpace").value;
+                    play();
                 };
-            </script>
+                function play() {
+                    var audio = document.getElementById("audio");
+                    audio.play();
+                }
+        </script>
     </div>
         
     <!-- Gameplay Area -->
@@ -291,7 +302,7 @@
             
             
             var next = function(coors) {
-                context.strokeStyle = "FFFFFF";
+                context.strokeStyle = "white";
                 context.lineTo(coors.x, coors.y);
                 context.stroke();
             }; 
