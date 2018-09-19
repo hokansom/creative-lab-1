@@ -80,18 +80,18 @@
                 var canvas =  document.getElementById('myCanvas');
                 canvas.getContext('2d').clearRect(0,0,canvas.width, canvas.height);
                 canvas.getContext('2d').beginPath();
-                document.getElementById("namingSpace").value = "";
-                document.getElementById("nameSlot").innerHTML = null;
             }
         </script>
         <form onsubmit="nameConstellation(event)">
-            <input type="text" id="namingSpace">
+            <input type="text" name="namingSpace">
             <input type="submit" value="Name my Constellation">
         </form>
         <script>
                 function nameConstellation(event) {
                     event.preventDefault();
-                    document.getElementById("nameSlot").innerHTML = document.getElementById("namingSpace").value;
+                    var name = document.getElementById("namingSpace").value;
+                    alert(name);
+                    document.getElementById("nameSlot").innerHTML = name;
                 };
             </script>
     </div>
