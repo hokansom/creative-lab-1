@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+h1 {
+    color: white;
+}
+
+#constellation_Collection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.constellation_Container {
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    border: 2px solid white;
+    color: white;
+}
+
+#addLineSpace {
+    background-image: url("starscape.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 900px;
+}
+
+canvas {
+    border: 1px solid black;
+    height: 100%;
+    width: 100%;
+}

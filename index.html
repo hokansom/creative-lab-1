@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="main.css" rel="stylesheet" title="text/css">
+    <title>Rewrite the Stars</title>
+</head>
+<body>
+    <h1>Rewrite the Stars</h1>
+    
+    <!-- Collection of constellations -->
+    <div id="constellation_Collection">
+    
+        <div class="constellation_Container">
+        <img src="Constellations/menu-monoceros.jpg" alt="A picture of a Constellation"/>
+        <p>Monoceros</p>
+        </div>
+        
+        <div class="constellation_Container">
+        <img src="Constellations/menu-lepus.jpg" alt="A picture of a Constellation"/>
+        <p>Lepus</p>
+        </div>
+        
+        <div class="constellation_Container">
+        <img src="Constellations/menu-canes-venatici.jpg" alt="A picture of a Constellation"/>
+        <p>Canes Venatici</p>
+        </div>
+        
+        <div class="constellation_Container">
+        <img src="Constellations/menu-corvus.jpg" alt="A picture of a Constellation"/>
+        <p>Corvus</p>
+        </div>
+        
+        <div class="constellation_Container">
+        <img src="Constellations/menu-gemini.jpg" alt="A picture of a Constellation"/>
+        <p>Gemni</p>
+        </div>
+        
+        <div class="constellation_Container">
+        <img src="Constellations/menu-columba.jpg" alt="A picture of a Constellation"/>
+        <p>Columba</p>
+        </div>
+        
+        <div class="constellation_Container">
+        <img src="Constellations/menu-canis-major.jpg" alt="A picture of a Constellation"/>
+        <p>Canis Major</p>
+        </div>
+        
+        <div class="constellation_Container">
+        <img src="Constellations/menu-camelopardalis.jpg" alt="A picture of a Constellation"/>
+        <p>Camelopardalis</p>
+        </div>
+        
+        <div class="constellation_Container">
+        <img src="Constellations/menu-virgo.jpg" alt="A picture of a Constellation"/>
+        <p>Virgo</p>
+        </div>
+        
+        <div class="constellation_Container">
+        <img src="Constellations/menu-auriga.jpg" alt="A picture of a Constellation"/>
+        <p>Auriga</p>
+        </div>
+        
+        <div class="constellation_Container">
+        <img src="Constellations/menu-pictor.jpg" alt="A picture of a Constellation"/>
+        <p>Pictor</p>
+        </div>
+        
+        <div class="constellation_Container">
+        <img src="Constellations/menu-centaurus.jpg" alt="A picture of a Constellation"/>
+        <p>Centaurus</p>
+        </div>
+    
+    </div>
+    <!-- Buttons for the Game -->
+    
+    <div>
+        <button onClick="startGame()">Start</button>
+        <button onClick="stopGame()">Stop</button>
+        <button onClick="clearGame()">Clear</button>
+        <script>
+            function clearGame() {
+                var canvas =  document.getElementById('myCanvas');
+                canvas.getContext('2d').clearRect(0,0,canvas.width, canvas.height);
+                canvas.getContext('2d').beginPath();
+            }
+        </script>
+        <form>
+            <input type="text" name="namingSpace"/>
+            <button onClick="nameConstellation()">Name my Constellation</button>
+        </form>
+    </div>
+        
+    <!-- Gameplay Area -->
+    
+    <div id="addLineSpace">
+        <div id="placeConstellationName"></div>
+        <canvas id="myCanvas"></canvas>
+    </div>
+
+    <script>
+            var canvas = document.getElementById('myCanvas');
+            var context = canvas.getContext('2d');
+            context.canvas.width = window.innerWidth;
+            context.canvas.height = window.innerHeight;
+
+            var start = function(coors) {
+                context.beginPath();
+                context.moveTo(coors.x, coors.y);
+            };
+            
+            
+            var next = function(coors) {
+                context.strokeStyle = "FFFFFF";
+                context.lineTo(coors.x, coors.y);
+                context.stroke();
+            }; 
+            
+            
+            var draw = function(event) {
+                var coors = {
+                    x: event.clientX,
+                    y: event.clientY
+                };
+                mousedown: next(coors);
+            }
+            
+            canvas.addEventListener('mousedown', draw, false);
+        </script>
+   
+</body>
+</html>
