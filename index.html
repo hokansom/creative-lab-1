@@ -24,11 +24,11 @@
 </head>
 <body>
     <h1>Rewrite the Stars</h1>
-    <p class="gameExplanation"> "For my part I know nothing with any certainty,
-    but the sight of the stars makes me dream. -Vincent Van Gogh" 
-    <br><br>Welcome to the website of dreamers where you can admire the stars anytime.
-    Whether it's a casual night in during a storm or the perfect night out with your special someone,
-    this is your chance to get educated on constellations! 
+    <p class="gameExplanantion">
+         "For my part I know nothing with certainty, but the sight of the stars makes me dream" - Vincent Van Gogh<br><br>
+         Welcome to the website of dreamers where you can admire the stars anytime. Whether it's a casual night in during a 
+         storm or the perfect night out with your special someone, this is your chance to get educated on constellations! 
+         To learn more about the different constellations, click on the pictures.
     </p>
     
     <!-- Collection of constellations -->
@@ -253,11 +253,31 @@
     </div>
     <!-- Buttons for the Game -->
     
-    <div>
-        <p class="gameExplanation"> Have you ever wanted to make your own constellation? Well, now is your chance! 
-        In the picture below, click on any of the stars to draw your own constellation. 
-        After you are finished drawing, please name your constellation and enjoy! If you want to start over again, click the clear button. </p>
-        <button onClick="clearGame()">Clear</button>
+    <p class="gameExplanantion">
+            Have you ever wanted to make your own constellation? Well, now is your chance! 
+            In the picture below, click on any of the stars to draw the constellation of your dreams. 
+            After you are finished drawing, please name your constellation and enjoy! 
+            If you want to start over again, click the clear button.
+    </p>
+    
+    <div id="buttons">
+        <form onsubmit="nameConstellation(event)">
+            <input type="text" id="namingSpace">
+            <input type="submit" value="Name my Constellation" id="submitButton">
+            <audio id="audio" src="musicCut.m4a"></audio>
+        </form>
+        <script>
+                function nameConstellation(event) {
+                    event.preventDefault();
+                    document.getElementById("nameSlot").innerHTML = document.getElementById("namingSpace").value;
+                    play();
+                };
+                function play() {
+                    var audio = document.getElementById("audio");
+                    audio.play();
+                }
+        </script>
+        <button onClick="clearGame()" id="clearButton">Clear</button>
         <script>
             function clearGame() {
                 var canvas =  document.getElementById('myCanvas');
@@ -272,23 +292,9 @@
                 audio.pause();
             }
         </script>
-        <form onsubmit="nameConstellation(event)">
-            <input type="text" id="namingSpace">
-            <input type="submit" value="Name my Constellation">
-            <audio id="audio" src="music.mp3"></audio>
-        </form>
-        <script>
-                function nameConstellation(event) {
-                    event.preventDefault();
-                    document.getElementById("nameSlot").innerHTML = document.getElementById("namingSpace").value;
-                    play();
-                };
-                function play() {
-                    var audio = document.getElementById("audio");
-                    audio.play();
-                }
-        </script>
     </div>
+    
+
         
     <!-- Gameplay Area -->
     
@@ -297,7 +303,12 @@
         <div id="placeConstellationName"></div>
         <canvas id="myCanvas"></canvas>
     </div>
-
+    
+    <div id="photoCredits">
+        <p>Starscape taken in Provo Canyon, February 2017</p>
+        <p>Photo Credits: @kellcarr_photo on instagram</p>
+    </div>
+    
     <script>
             var canvas = document.getElementById('myCanvas');
             var context = canvas.getContext('2d');
@@ -329,5 +340,9 @@
             canvas.addEventListener('mousedown', draw, false);
         </script>
    
+   
+       
+
+    
 </body>
 </html>
